@@ -46,7 +46,7 @@
                             <li><a href="exercicio05/exercicio05.php">Exercício 5</a></li>
                             <li><a href="exercicio06/exercicio06.php">Exercício 6</a></li>
                             <li><a href="exercicio07/exercicio07.php">Exercício 7</a></li>
-                            <li><a href="exercicios/ex8.php">Exercício Extra 8</a></li>
+                            <li><a href="exercicio08/index.php">Exercício 8</a></li>
 
                         </ul>
                     </li>
