@@ -1,99 +1,153 @@
 <?php
 
-class Livro
- 
-{
-    /**
-    * @var string
-    */
-    private $_titulo;
-    
-    /**
-    * @var string
-    */
-    private $_autor;
-    
-    /**
+class Livro {
+  /**
+   * @var string
+   */
+  private $titulo;
+
+  /**
+   * @var string
+   */
+  private $autor;
+
+  /**
+   * @var int
+   */
+  private $totPaginas;
+
+  /**
     * @var int
     */
-    private $_totPaginas;
-    
-    /**
-    * @var int
-    */
-    private $_pagAtual;
-    
-    /**
-    * @var boolean
-    */
-    private $_aberto;
-    
-    /**
-    * @var Pessoa
-    */
-    private $_leitor;
+  private $pagAtual;
 
-    public function getTitulo() 
-    {
-        return $this->_titulo;
-    }
+  /**
+   * @var bool
+   */
+  private $aberto;
 
-    public function setTitulo($titulo) 
-    {
-        $this->_titulo = $titulo;
-    }
+  /**
+   * @var Pessoa
+   */
+  private $leitor;
 
-    public function getAutor() 
-    {
-        return $this->_autor;
-    }
+  public function getTitulo() {
+    return $this->titulo;
+  }
 
-    public function setAutor($autor)
-    {
-        $this->_autor = $autor;
-    }
+  public function setTitulo($titulo) {
+    $this->titulo = $titulo;
+  }
 
-    public function getTotPaginas()
-    {
-        return $this->_totPaginas;
-    }
+  public function getAutor() {
+    return $this->autor;
+  }
 
-    public function setTotPaginas($totPaginas)
-    {
-        $this->_totPaginas = $totPaginas;
-    }
+  public function setAutor($autor) {
+    $this->autor = $autor;
+  }
 
-    public function getPagAtual()
-    {
-        return $this->_pagAtual;
+  public function getTotPaginas() {
+    return $this->totPaginas;
+  }
+
+  public function setTotPaginas($totPaginas) {
+    $this->totPaginas = $totPaginas;
+  }
+
+  public function getPagAtual() {
+    return $this->pagAtual;
+  }
+
+  public function setPagAtual($pagAtual) {
+    $this->pagAtual = $pagAtual;
+  }
+
+  public function getAberto() {
+    if ($this->aberto == TRUE) {
+      return 'Aberto';
     }
 
-    public function setPagAtual($pagAtual)
-    {
-        $this->_pagAtual = $pagAtual;
+    else {
+      return 'Fechado';
     }
-    public function getAberto()
-    {
-        if ($this->_aberto == true) {
-            return 'Aberto';
-        } else {
-            return 'Fechado';
-        }
-    }
+  }
 
-    public function setAberto($aberto)
-    {
-        $this->_aberto = $aberto;
-    }
-    public function getLeitor()
-    {
-        return $this->_leitor->getNome();
-    }
+  public function setAberto($aberto) {
+    $this->aberto = $aberto;
+  }
 
-    public function setLeitor($leitor)
-    {
-        $this->_leitor = $leitor;
-    }
+  public function getLeitor() {
+    return $this->leitor->getNome();
+  }
+
+  public function setLeitor($leitor) {
+    $this->leitor = $leitor;
+  }
+
+  /**
+   * Função para setar o livro como aberto.
+   *
+   * @param Livro $livro
+   * @return void
+   */
+  public function abrirLivro(Livro $livro) {
+    $livro->setAberto(TRUE);
+    $livro->setPagAtual(1);
+    return $livro;
+  }
+
+  /**
+   * Função para setar o livro como fechado.
+   *
+   * @param Livro $livro
+   * @return void
+   */
+  public function fecharLivro(Livro $livro) {
+    $livro->setAberto(FALSE);
+    $livro->setPagAtual(0);
+    return $livro;
+  }
+
+  /**
+   * Função para avançar x páginas.
+   *
+   * @param Livro $livro
+   * @param [type] $pagina
+   * @return void
+   */
+  public function folhear(Livro $livro, int $pagina) {
+    $paginaAtual = $livro->getPagAtual();
+    $paginaAtual = $paginaAtual + $pagina;
+    $livro->setPagAtual($paginaAtual);
+    return $livro;
+  }
+
+  /**
+   * Função para avançar página no livro.
+   *
+   * @param Livro $livro
+   * @return void
+   */
+  public function avancarPag(Livro $livro) {
+    $pag = 1;
+    $pag = $livro->getPagAtual() + $pag;
+    $livro->setPagAtual($pag);
+    return $livro;
+  }
+
+  /**
+   * Função para voltar página no livro.
+   *
+   * @param Livro $livro
+   * @return void
+   */
+  public function voltarPag(Livro $livro) {
+    $pag = -1;
+    $pag = $livro->getPagAtual() + $pag;
+    $livro->setPagAtual($pag);
+    return $livro;
+  }
 }
 
 ?>

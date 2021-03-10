@@ -2,41 +2,16 @@
 
 require_once __DIR__ .'/Model/livro.php';
 
-function abrirLivro(Livro $livro) 
-{
-    $livro->setAberto(true);
-    $livro->setPagAtual(1);
-    return $livro;
-}
+interface Publicacao {
 
-function fecharLivro(Livro $livro)
-{
-    $livro->setAberto(false);
-    $livro->setPagAtual(0);
-    return $livro;
+  public function abrirLivro(Livro $livro);
 
-}
+  public function fecharLivro(Livro $livro);
 
-function folhear(Livro $livro, $pagina)
-{
-    $paginaAtual = $livro->getPagAtual();
-    $paginaAtual = $paginaAtual + $pagina;
-    $livro->setPagAtual($paginaAtual);
-    return $livro;
-}
+  public function folhear(Livro $livro, $pagina);
 
-function avancarPag(Livro $livro)
-{
-    $pag = 1;
-    $pag = $livro->getPagAtual() + $pag;
-    $livro->setPagAtual($pag);
-    return $livro;
-}
+  public function avancarPag(Livro $livro);
 
-function voltarPag(Livro $livro)
-{
-    $pag = -1;
-    $pag = $livro->getPagAtual() + $pag;
-    $livro->setPagAtual($pag);
-    return $livro;
+  public function voltarPag(Livro $livro);
+
 }

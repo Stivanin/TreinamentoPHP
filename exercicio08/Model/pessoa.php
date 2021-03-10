@@ -2,50 +2,44 @@
 
 class Pessoa
 {
-    /**
-    * @var string
-    */
-    private $_nome;
-    
-    /**
-    * @var string
-    */
-    private $_sexo;
-    
-    /**
-    * @var int
-    */
-    private $_idade;
+  /**
+   * @var string
+   */
+  private $nome;
 
-    public function getNome() 
-    {
-        return $this->_nome;
-    }
+  /**
+   * @var string
+   */
+  private $sexo;
 
-    public function setNome($nome) 
-    {
-        $this->_nome = $nome;
-    }
+  /**
+   * @var int
+   */
+  private $idade;
 
-    public function getSexo() 
-    {
-        return $this->_sexo;
-    }
+  public function getNome() {
+    return $this->nome;
+  }
 
-    public function setSexo($sexo)
-    {
-        $this->_sexo = $sexo;
-    }
+  public function setNome($nome) {
+    $this->nome = $nome;
+  }
 
-    public function getIdade()
-    {
-        return $this->_idade;
-    }
+  public function getSexo() {
+    return $this->sexo;
+  }
 
-    public function setIdade($idade)
-    {
-        $this->_idade = $idade;
-    }
+  public function setSexo($sexo) {
+    $this->sexo = $sexo;
+  }
+
+  public function getIdade() {
+    return $this->idade;
+  }
+
+  public function setIdade($idade) {
+    $this->idade = $idade;
+  }
 }
 
 ?>
